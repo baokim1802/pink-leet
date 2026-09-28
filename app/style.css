@@ -166,6 +166,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .roadmap .dot { width: 18px; text-align: center; font-size: 12px; flex-shrink: 0; }
 .roadmap .mini { margin-left: auto; font-size: 11px; color: var(--ink-faint); }
 .sync-btn { justify-content: center; flex-shrink: 0; }
+.backup-row { gap: 6px; flex-wrap: nowrap; }
+.backup-row .btn { flex: 1; justify-content: center; }
 .side-foot { font-size: 13px; color: var(--ink-soft); background: var(--glass-2); border-radius: 14px; padding: 12px 14px; font-style: italic; }
 
 /* ---------- common ---------- */

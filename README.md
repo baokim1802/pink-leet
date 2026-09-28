@@ -2,7 +2,21 @@
 
 A small study app for data structures, algorithms and LeetCode-style interview prep in JavaScript. It has lessons, practice problems with tests, goals and a progress tracker.
 
-## Run it on GitHub (no local setup)
+## Study website (GitHub Pages)
+
+The site at **https://baokim1802.github.io/pink-leet/** is always on, with nothing to start. Every push to
+`main` rebuilds it (`.github/workflows/pages.yml`).
+
+- Tests run in your browser, using the same test runner the Node version uses.
+- Your code, notes, progress and cheat sheet edits are saved **in that browser**. Use **⬇️ Backup**
+  and **⬆️ Restore** in the sidebar to keep a copy or move to another device. Restore also accepts the
+  repo's `data/progress.json`.
+- On first visit the site starts from the solutions and progress committed in the repo.
+- "Open in editor" isn't available on the website. Use the built-in editor.
+
+Try the website build locally: `npm run build -- --serve` → http://localhost:4322
+
+## Run it in Codespaces
 
 1. On the repo page, click **Code → Codespaces → Create codespace on main**.
 2. Wait about a minute. The app starts by itself and opens in a new browser tab.
@@ -69,6 +83,7 @@ The 🌙 button next to the logo switches between light and dark mode.
 | `npm test two-sum -- --ref` | Test the reference solution |
 | `npm run new -- 05-stack my-problem Medium` | Scaffold your own problem |
 | `npm run sync` | Commit + push your solutions, notes and progress |
+| `npm run build` | Build the static website into `dist/` |
 | `npm run check` | Check that every reference solution passes its tests |
 
 Set `LEET_EDITOR` to choose the editor the ✏️ *Open in editor* button uses. It defaults to `cursor`, e.g. `LEET_EDITOR=code npm start`.

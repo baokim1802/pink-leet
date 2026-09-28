@@ -20,7 +20,8 @@ for (const p of listProblems().filter((x) => !filters.length || filters.some((f)
   } else problems.push('no reference.js');
   const stub = run('solution.js');
   if (stub.loadError) problems.push('stub: ' + stub.loadError);
-  if (stub.ok) problems.push('stub already passes all tests (tests too weak?)');
+  // Once you've solved a problem your solution.js passes: that's great, not an error.
+  // (While writing new problems, an untouched stub passing would mean the tests are too weak.)
   if (problems.length) { bad++; console.log(`✘ ${p.id}\n    ${problems.join('\n    ')}`); }
   else console.log(`✔ ${p.id}`);
 }

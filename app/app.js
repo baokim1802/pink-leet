@@ -1,5 +1,6 @@
 import { renderMarkdown, highlightJs } from './md.js';
 import { initCheatsheet, toggleCheatsheet } from './cheatsheet.js';
+import { api, STATIC, staticBackend } from './api.js';
 
 // ---------- state & helpers ----------
 const state = { lessons: [], problems: [], progress: null };
@@ -7,17 +8,6 @@ const $main = document.getElementById('main');
 const $side = document.getElementById('sidebar');
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-
-async function api(path, opts = {}) {
-  const res = await fetch(`/api/${path}`, {
-    ...opts,
-    headers: { 'Content-Type': 'application/json' },
-    body: opts.body ? JSON.stringify(opts.body) : undefined,
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || res.statusText);
-  return data;
-}
 
 async function refresh() {
   Object.assign(state, await api('state'));
@@ -159,7 +149,13 @@ function renderSidebar() {
         }).join('')}
       </div>
     </div>
-    <button class="btn sync-btn" id="sync" title="Commit & push your solutions, notes and progress">☁️ Save to GitHub</button>
+    ${STATIC
+      ? `<div class="row sync-btn backup-row">
+          <button class="btn small" id="backup" title="Download your code, notes and progress as a file">⬇️ Backup</button>
+          <button class="btn small" id="restore" title="Load a backup file (or data/progress.json from the repo)">⬆️ Restore</button>
+          <input type="file" id="restore-file" accept=".json,application/json" hidden>
+        </div>`
+      : '<button class="btn sync-btn" id="sync" title="Commit & push your solutions, notes and progress">☁️ Save to GitHub</button>'}
 `;
   // keep the roadmap where it was, but make sure the current lesson is visible
   const roadmap = $side.querySelector('.roadmap');
@@ -170,9 +166,34 @@ function renderSidebar() {
     if (top < roadmap.scrollTop) roadmap.scrollTop = top - 8;
     else if (bottom > roadmap.scrollTop + roadmap.clientHeight) roadmap.scrollTop = bottom - roadmap.clientHeight + 24;
   }
-  document.getElementById('sync').addEventListener('click', syncToGitHub);
+  if (STATIC) wireBackup();
+  else document.getElementById('sync').addEventListener('click', syncToGitHub);
   document.getElementById('theme').addEventListener('click', toggleTheme);
   document.getElementById('nav-cs').addEventListener('click', (e) => { e.preventDefault(); toggleCheatsheet(); });
+}
+
+function wireBackup() {
+  document.getElementById('backup').addEventListener('click', async () => {
+    if (current?.dirty && current.save) await current.save();
+    (await staticBackend()).exportBackup();
+    toast('Backup downloaded 💾');
+  });
+  const file = document.getElementById('restore-file');
+  document.getElementById('restore').addEventListener('click', () => file.click());
+  file.addEventListener('change', async () => {
+    const f = file.files[0];
+    if (!f) return;
+    if (!confirm(`Replace the work saved in this browser with "${f.name}"?`)) { file.value = ''; return; }
+    try {
+      await (await staticBackend()).importBackup(await f.text());
+      current = null; // don't let the unsaved-code guard block the reload
+      toast('Restored 🌸');
+      setTimeout(() => location.reload(), 600);
+    } catch (err) {
+      toast('🥺 ' + err.message);
+    }
+    file.value = '';
+  });
 }
 
 async function syncToGitHub(e) {
@@ -497,15 +518,15 @@ async function viewProblem(id) {
         <div class="editor-bar">
           <button class="btn primary small" id="run">▶ Run tests</button>
           <button class="btn small" id="save">💾 Save <span class="dirty-dot"></span></button>
-          <button class="btn small" id="open" title="Open solution.js in your editor">✏️ Open in editor</button>
-          <button class="btn ghost small" id="reload" title="Reload from disk">↻</button>
+          ${STATIC ? '' : `<button class="btn small" id="open" title="Open solution.js in your editor">✏️ Open in editor</button>
+          <button class="btn ghost small" id="reload" title="Reload from disk">↻</button>`}
           <span class="path" title="${esc(p.file)}">${esc(p.slug)}/solution.js</span>
         </div>
         <div class="editor">
           <pre class="gutter" id="gutter">1</pre>
           <textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
         </div>
-        <div class="kbd-hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> run · <kbd>Ctrl</kbd>+<kbd>S</kbd> save · edits here and in your editor both work (it reloads when you come back)</div>
+        <div class="kbd-hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> run · <kbd>Ctrl</kbd>+<kbd>S</kbd> save · ${STATIC ? 'your code is saved in this browser (use ⬇️ Backup to keep a copy)' : 'edits here and in your editor both work (it reloads when you come back)'}</div>
         <div id="results"></div>
       </div>
     </div>`;
@@ -596,11 +617,13 @@ function wireProblem(p) {
 
   document.getElementById('run').addEventListener('click', run);
   document.getElementById('save').addEventListener('click', async () => { await save(); toast('Saved 💾'); });
-  document.getElementById('reload').addEventListener('click', () => reload(false));
-  document.getElementById('open').addEventListener('click', async () => {
-    const r = await api(`problems/${id}/open`, { method: 'POST' });
-    toast(`Opening in ${r.opened}…`);
-  });
+  if (!STATIC) {
+    document.getElementById('reload').addEventListener('click', () => reload(false));
+    document.getElementById('open').addEventListener('click', async () => {
+      const r = await api(`problems/${id}/open`, { method: 'POST' });
+      toast(`Opening in ${r.opened}…`);
+    });
+  }
   code.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); run(); }
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save().then(() => toast('Saved 💾')); }
@@ -818,5 +841,7 @@ window.addEventListener('focus', async () => {
 
 initCheatsheet();
 refresh().then(route).catch((err) => {
-  $main.innerHTML = `<div class="empty"><div class="big">🥺</div>Couldn't reach the study server.<br>Is <code>npm start</code> running?<br><small>${esc(err.message)}</small></div>`;
+  $main.innerHTML = STATIC
+    ? `<div class="empty"><div class="big">🥺</div>Couldn't load the study content.<br><small>${esc(err.message)}</small></div>`
+    : `<div class="empty"><div class="big">🥺</div>Couldn't reach the study server.<br>Is <code>npm start</code> running?<br><small>${esc(err.message)}</small></div>`;
 });

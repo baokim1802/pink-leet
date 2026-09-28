@@ -11,6 +11,7 @@
     "test": "node -r ./scripts/guard.js scripts/test.js",
     "new": "node -r ./scripts/guard.js scripts/new.js",
     "check": "node -r ./scripts/guard.js scripts/check.js",
-    "sync": "node -r ./scripts/guard.js scripts/sync.js"
+    "sync": "node -r ./scripts/guard.js scripts/sync.js",
+    "build": "node -r ./scripts/guard.js scripts/build-static.js"
   }
 }

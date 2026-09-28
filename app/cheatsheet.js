@@ -1,6 +1,7 @@
 // Right-side cheat sheet drawer: one accordion group per file in cheatsheets/, one item per "## " section.
 // Open with the floating tab, the sidebar link, or Ctrl+/ (Cmd+/). Esc closes it.
 import { renderMarkdown } from './md.js';
+import { api } from './api.js';
 
 const STORE = 'leet:cheatsheet';
 const $drawer = document.getElementById('cheatsheet');
@@ -29,9 +30,11 @@ function parseSheet(sheet) {
 }
 
 async function load() {
-  const res = await fetch('/api/cheatsheets');
-  if (!res.ok) throw new Error(res.status === 404 ? 'outdated-server' : `HTTP ${res.status}`);
-  sheets = (await res.json()).map(parseSheet);
+  try {
+    sheets = (await api('cheatsheets')).map(parseSheet);
+  } catch (err) {
+    throw new Error(err.status === 404 ? 'outdated-server' : err.message);
+  }
 }
 
 function render() {
@@ -92,10 +95,12 @@ function wireEditor(el) {
   const original = ta.value;
   const save = async () => {
     status.textContent = 'Saving…';
-    const res = await fetch(`/api/cheatsheets/${encodeURIComponent(editing)}`, {
-      method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ markdown: ta.value }),
-    });
-    if (!res.ok) { status.textContent = '🥺 ' + ((await res.json()).error || 'Save failed'); return; }
+    try {
+      await api(`cheatsheets/${encodeURIComponent(editing)}`, { method: 'PUT', body: { markdown: ta.value } });
+    } catch (err) {
+      status.textContent = '🥺 ' + (err.message || 'Save failed');
+      return;
+    }
     saved.groups[editing] = true;
     persist();
     editing = null;
@@ -131,10 +136,7 @@ function startEditing(id) {
 async function newSheet() {
   const title = prompt('Name for the new cheat sheet (e.g. "Regex" or "My notes"):');
   if (!title || !title.trim()) return;
-  const res = await fetch('/api/cheatsheets', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title }),
-  });
-  const { id } = await res.json();
+  const { id } = await api('cheatsheets', { method: 'POST', body: { title } });
   await load();
   startEditing(id);
 }
