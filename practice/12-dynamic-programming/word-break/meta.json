@@ -1,0 +1,7 @@
+{
+  "title": "Word Break",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/word-break/",
+  "tags": ["dynamic programming", "1D DP", "strings", "hash set"],
+  "order": 11
+}

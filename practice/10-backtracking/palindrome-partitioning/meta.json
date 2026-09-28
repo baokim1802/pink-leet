@@ -1,0 +1,7 @@
+{
+  "title": "Palindrome Partitioning",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/palindrome-partitioning/",
+  "tags": ["backtracking", "string", "palindrome"],
+  "order": 8
+}

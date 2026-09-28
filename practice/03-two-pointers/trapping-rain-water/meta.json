@@ -1,0 +1,7 @@
+{
+  "title": "Trapping Rain Water",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/trapping-rain-water/",
+  "tags": ["two pointers", "prefix max", "stack"],
+  "order": 6
+}

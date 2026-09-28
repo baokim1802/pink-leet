@@ -1,0 +1,7 @@
+{
+  "title": "Insert Interval",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/insert-interval/",
+  "tags": ["intervals", "arrays"],
+  "order": 3
+}

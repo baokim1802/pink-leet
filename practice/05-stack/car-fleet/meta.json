@@ -1,0 +1,7 @@
+{
+  "title": "Car Fleet",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/car-fleet/",
+  "tags": ["stack", "sorting", "monotonic stack"],
+  "order": 6
+}

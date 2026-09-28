@@ -1,0 +1,7 @@
+{
+  "title": "Set Matrix Zeroes",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/set-matrix-zeroes/",
+  "tags": ["matrix", "hash set"],
+  "order": 8
+}

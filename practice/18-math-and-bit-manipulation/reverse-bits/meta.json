@@ -1,0 +1,7 @@
+{
+  "title": "Reverse Bits",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/reverse-bits/",
+  "tags": ["bit manipulation"],
+  "order": 5
+}

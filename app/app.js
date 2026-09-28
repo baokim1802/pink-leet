@@ -127,6 +127,7 @@ function toggleTheme() {
 // ---------- sidebar ----------
 function renderSidebar() {
   const route = location.hash || '#/';
+  const prevScroll = $side.querySelector('.roadmap')?.scrollTop || 0;
   const s = stats();
   const nav = [
     ['#/', '🏠', 'Home', `🔥 ${s.streak}`],
@@ -144,7 +145,7 @@ function renderSidebar() {
       ${nav.map(([href, ico, label, count]) => `<a href="${href}" class="${isActive(href) ? 'active' : ''}"><span>${ico}</span>${label}<span class="count">${count}</span></a>`).join('')}
       <a href="#" id="nav-cs"><span>📝</span>Cheat sheet<span class="count"><kbd>Ctrl</kbd>+<kbd>/</kbd></span></a>
     </nav>
-    <div>
+    <div class="roadmap-wrap">
       <div class="side-title">Roadmap</div>
       <div class="roadmap">
         ${state.lessons.map((l) => {
@@ -160,6 +161,15 @@ function renderSidebar() {
     </div>
     <button class="btn sync-btn" id="sync" title="Commit & push your solutions, notes and progress">☁️ Save to GitHub</button>
 `;
+  // keep the roadmap where it was, but make sure the current lesson is visible
+  const roadmap = $side.querySelector('.roadmap');
+  roadmap.scrollTop = prevScroll;
+  const active = roadmap.querySelector('a.active');
+  if (active) {
+    const top = active.offsetTop, bottom = top + active.offsetHeight;
+    if (top < roadmap.scrollTop) roadmap.scrollTop = top - 8;
+    else if (bottom > roadmap.scrollTop + roadmap.clientHeight) roadmap.scrollTop = bottom - roadmap.clientHeight + 24;
+  }
   document.getElementById('sync').addEventListener('click', syncToGitHub);
   document.getElementById('theme').addEventListener('click', toggleTheme);
   document.getElementById('nav-cs').addEventListener('click', (e) => { e.preventDefault(); toggleCheatsheet(); });

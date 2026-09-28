@@ -1,0 +1,7 @@
+{
+  "title": "Cheapest Flights Within K Stops",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+  "tags": ["graph", "bellman-ford", "shortest path"],
+  "order": 5
+}

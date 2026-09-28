@@ -169,6 +169,12 @@ Rough feel for sizes: 2²⁰ ≈ 1 million (fine), 10! ≈ 3.6 million (fine), 1
 - [Subsets](#/practice/10-backtracking/subsets) — Medium
 - [Permutations](#/practice/10-backtracking/permutations) — Medium
 - [Combination Sum](#/practice/10-backtracking/combination-sum) — Medium
+- [Letter Combinations of a Phone Number](#/practice/10-backtracking/letter-combinations-of-a-phone-number) — Medium
+- [Subsets II](#/practice/10-backtracking/subsets-ii) — Medium
+- [Combination Sum II](#/practice/10-backtracking/combination-sum-ii) — Medium
+- [Word Search](#/practice/10-backtracking/word-search) — Medium
+- [Palindrome Partitioning](#/practice/10-backtracking/palindrome-partitioning) — Medium
+- [N-Queens](#/practice/10-backtracking/n-queens) — Hard
 
 ## Before moving on
 

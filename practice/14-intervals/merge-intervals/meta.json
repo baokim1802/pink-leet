@@ -1,0 +1,7 @@
+{
+  "title": "Merge Intervals",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/merge-intervals/",
+  "tags": ["intervals", "sorting"],
+  "order": 2
+}

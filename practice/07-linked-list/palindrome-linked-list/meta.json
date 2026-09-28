@@ -1,0 +1,7 @@
+{
+  "title": "Palindrome Linked List",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/palindrome-linked-list/",
+  "tags": ["linked list", "fast & slow pointers", "reversal"],
+  "order": 5
+}

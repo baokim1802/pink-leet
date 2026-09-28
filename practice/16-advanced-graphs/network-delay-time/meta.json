@@ -1,0 +1,7 @@
+{
+  "title": "Network Delay Time",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/network-delay-time/",
+  "tags": ["graph", "dijkstra", "heap"],
+  "order": 1
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Minimum Path Sum",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/minimum-path-sum/",
+  "tags": ["dynamic programming", "grid dp"],
+  "order": 2
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Task Scheduler",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/task-scheduler/",
+  "tags": ["heap", "greedy", "counting"],
+  "order": 6
+}

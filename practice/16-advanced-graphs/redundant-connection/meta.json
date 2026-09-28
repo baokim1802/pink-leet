@@ -1,0 +1,7 @@
+{
+  "title": "Redundant Connection",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/redundant-connection/",
+  "tags": ["graph", "union-find"],
+  "order": 3
+}

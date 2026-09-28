@@ -1,0 +1,7 @@
+{
+  "title": "Sliding Window Maximum",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/sliding-window-maximum/",
+  "tags": ["sliding window", "monotonic deque"],
+  "order": 6
+}

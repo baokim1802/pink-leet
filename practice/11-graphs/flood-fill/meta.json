@@ -1,0 +1,7 @@
+{
+  "title": "Flood Fill",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/flood-fill/",
+  "tags": ["graph", "dfs", "bfs", "grid"],
+  "order": 4
+}

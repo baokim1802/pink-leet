@@ -1,0 +1,7 @@
+{
+  "title": "Jump Game",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/jump-game/",
+  "tags": ["greedy", "array"],
+  "order": 4
+}

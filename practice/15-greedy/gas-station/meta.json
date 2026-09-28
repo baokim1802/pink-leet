@@ -1,0 +1,7 @@
+{
+  "title": "Gas Station",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/gas-station/",
+  "tags": ["greedy", "array"],
+  "order": 6
+}

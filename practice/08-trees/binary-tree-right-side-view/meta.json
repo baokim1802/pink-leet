@@ -1,0 +1,7 @@
+{
+  "title": "Binary Tree Right Side View",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/binary-tree-right-side-view/",
+  "tags": ["tree", "bfs", "dfs"],
+  "order": 10
+}

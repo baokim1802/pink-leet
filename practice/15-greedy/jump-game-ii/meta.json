@@ -1,0 +1,7 @@
+{
+  "title": "Jump Game II",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/jump-game-ii/",
+  "tags": ["greedy", "array", "bfs"],
+  "order": 5
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Decode String",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/decode-string/",
+  "tags": ["stack", "string", "recursion"],
+  "order": 5
+}

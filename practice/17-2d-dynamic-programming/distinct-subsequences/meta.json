@@ -1,0 +1,7 @@
+{
+  "title": "Distinct Subsequences",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/distinct-subsequences/",
+  "tags": ["dynamic programming", "two-sequence dp"],
+  "order": 10
+}

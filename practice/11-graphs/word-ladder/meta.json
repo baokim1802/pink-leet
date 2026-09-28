@@ -1,0 +1,7 @@
+{
+  "title": "Word Ladder",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/word-ladder/",
+  "tags": ["graph", "bfs", "shortest path", "string"],
+  "order": 13
+}

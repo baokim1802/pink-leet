@@ -178,7 +178,14 @@ If you wanted the *first* middle instead, start `fast` at `head.next`. Small cha
 - [Reverse Linked List](#/practice/07-linked-list/reverse-linked-list) — Easy
 - [Merge Two Sorted Lists](#/practice/07-linked-list/merge-two-sorted-lists) — Easy
 - [Linked List Cycle](#/practice/07-linked-list/linked-list-cycle) — Easy
+- [Palindrome Linked List](#/practice/07-linked-list/palindrome-linked-list) — Easy
 - [Remove Nth Node From End of List](#/practice/07-linked-list/remove-nth-node-from-end-of-list) — Medium
+- [Odd Even Linked List](#/practice/07-linked-list/odd-even-linked-list) — Medium
+- [Reorder List](#/practice/07-linked-list/reorder-list) — Medium
+- [Add Two Numbers](#/practice/07-linked-list/add-two-numbers) — Medium
+- [Copy List with Random Pointer](#/practice/07-linked-list/copy-list-with-random-pointer) — Medium
+- [LRU Cache](#/practice/07-linked-list/lru-cache) — Medium
+- [Reverse Nodes in k-Group](#/practice/07-linked-list/reverse-nodes-in-k-group) — Hard
 
 ## Before moving on
 

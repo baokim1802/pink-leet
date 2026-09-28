@@ -1,0 +1,7 @@
+{
+  "title": "Diameter of Binary Tree",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/diameter-of-binary-tree/",
+  "tags": ["tree", "dfs", "recursion"],
+  "order": 7
+}

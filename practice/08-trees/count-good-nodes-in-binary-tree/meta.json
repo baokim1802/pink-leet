@@ -1,0 +1,7 @@
+{
+  "title": "Count Good Nodes in Binary Tree",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/count-good-nodes-in-binary-tree/",
+  "tags": ["tree", "dfs"],
+  "order": 11
+}

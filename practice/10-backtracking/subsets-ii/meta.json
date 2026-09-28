@@ -1,0 +1,7 @@
+{
+  "title": "Subsets II",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/subsets-ii/",
+  "tags": ["backtracking", "duplicates", "sorting"],
+  "order": 5
+}

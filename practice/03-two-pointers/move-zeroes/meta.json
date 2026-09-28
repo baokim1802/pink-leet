@@ -1,0 +1,7 @@
+{
+  "title": "Move Zeroes",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/move-zeroes/",
+  "tags": ["two pointers", "in-place"],
+  "order": 4
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Majority Element",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/majority-element/",
+  "tags": ["hash map", "counting", "boyer-moore"],
+  "order": 6
+}

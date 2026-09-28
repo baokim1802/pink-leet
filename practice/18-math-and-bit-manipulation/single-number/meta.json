@@ -1,0 +1,7 @@
+{
+  "title": "Single Number",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/single-number/",
+  "tags": ["bit manipulation", "xor"],
+  "order": 1
+}

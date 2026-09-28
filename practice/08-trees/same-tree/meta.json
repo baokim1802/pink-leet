@@ -1,0 +1,7 @@
+{
+  "title": "Same Tree",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/same-tree/",
+  "tags": ["tree", "dfs", "recursion"],
+  "order": 5
+}

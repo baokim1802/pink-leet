@@ -1,0 +1,7 @@
+{
+  "title": "Minimum Number of Arrows to Burst Balloons",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/",
+  "tags": ["intervals", "greedy", "sorting"],
+  "order": 5
+}

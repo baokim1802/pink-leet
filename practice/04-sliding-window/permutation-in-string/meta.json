@@ -1,0 +1,7 @@
+{
+  "title": "Permutation in String",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/permutation-in-string/",
+  "tags": ["sliding window", "hash map", "string"],
+  "order": 4
+}

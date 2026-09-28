@@ -1,0 +1,7 @@
+{
+  "title": "Asteroid Collision",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/asteroid-collision/",
+  "tags": ["stack", "simulation"],
+  "order": 4
+}

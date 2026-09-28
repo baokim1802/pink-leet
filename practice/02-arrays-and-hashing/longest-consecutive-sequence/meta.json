@@ -1,0 +1,7 @@
+{
+  "title": "Longest Consecutive Sequence",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/longest-consecutive-sequence/",
+  "tags": ["hash set", "array"],
+  "order": 9
+}

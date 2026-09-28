@@ -1,0 +1,7 @@
+{
+  "title": "Hand of Straights",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/hand-of-straights/",
+  "tags": ["greedy", "hash map", "sorting"],
+  "order": 8
+}

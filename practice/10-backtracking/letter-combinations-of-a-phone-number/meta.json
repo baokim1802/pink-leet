@@ -1,0 +1,7 @@
+{
+  "title": "Letter Combinations of a Phone Number",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+  "tags": ["backtracking", "string", "hash map"],
+  "order": 4
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Fibonacci Number",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/fibonacci-number/",
+  "tags": ["dynamic programming", "1D DP", "memoization"],
+  "order": 5
+}

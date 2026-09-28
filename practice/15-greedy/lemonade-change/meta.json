@@ -1,0 +1,7 @@
+{
+  "title": "Lemonade Change",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/lemonade-change/",
+  "tags": ["greedy", "simulation"],
+  "order": 2
+}

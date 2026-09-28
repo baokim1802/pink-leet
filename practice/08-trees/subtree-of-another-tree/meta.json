@@ -1,0 +1,7 @@
+{
+  "title": "Subtree of Another Tree",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/subtree-of-another-tree/",
+  "tags": ["tree", "dfs", "recursion"],
+  "order": 6
+}

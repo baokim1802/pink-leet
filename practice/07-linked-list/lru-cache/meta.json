@@ -1,0 +1,7 @@
+{
+  "title": "LRU Cache",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/lru-cache/",
+  "tags": ["linked list", "hash map", "design"],
+  "order": 10
+}

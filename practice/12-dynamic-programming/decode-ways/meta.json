@@ -1,0 +1,7 @@
+{
+  "title": "Decode Ways",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/decode-ways/",
+  "tags": ["dynamic programming", "1D DP", "strings"],
+  "order": 8
+}

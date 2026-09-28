@@ -1,0 +1,7 @@
+{
+  "title": "Design Add and Search Words Data Structure",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+  "tags": ["trie", "design", "dfs"],
+  "order": 2
+}

@@ -192,6 +192,14 @@ General rule: **time = (number of states) × (work per transition)**; space = nu
 - [House Robber](#/practice/12-dynamic-programming/house-robber) — Medium
 - [Coin Change](#/practice/12-dynamic-programming/coin-change) — Medium
 - [Longest Common Subsequence](#/practice/12-dynamic-programming/longest-common-subsequence) — Medium
+- [Fibonacci Number](#/practice/12-dynamic-programming/fibonacci-number) — Easy
+- [House Robber II](#/practice/12-dynamic-programming/house-robber-ii) — Medium
+- [Maximum Product Subarray](#/practice/12-dynamic-programming/maximum-product-subarray) — Medium
+- [Decode Ways](#/practice/12-dynamic-programming/decode-ways) — Medium
+- [Palindromic Substrings](#/practice/12-dynamic-programming/palindromic-substrings) — Medium
+- [Longest Palindromic Substring](#/practice/12-dynamic-programming/longest-palindromic-substring) — Medium
+- [Word Break](#/practice/12-dynamic-programming/word-break) — Medium
+- [Longest Increasing Subsequence](#/practice/12-dynamic-programming/longest-increasing-subsequence) — Medium
 
 ## Before moving on
 

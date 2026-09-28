@@ -1,0 +1,7 @@
+{
+  "title": "Reverse Nodes in k-Group",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+  "tags": ["linked list", "reversal", "dummy head"],
+  "order": 11
+}

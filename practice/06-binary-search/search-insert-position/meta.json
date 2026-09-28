@@ -1,0 +1,7 @@
+{
+  "title": "Search Insert Position",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/search-insert-position/",
+  "tags": ["binary search", "lower bound"],
+  "order": 4
+}

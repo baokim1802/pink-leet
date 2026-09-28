@@ -1,0 +1,7 @@
+{
+  "title": "Assign Cookies",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/assign-cookies/",
+  "tags": ["greedy", "sorting", "two pointers"],
+  "order": 1
+}

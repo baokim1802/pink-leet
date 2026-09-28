@@ -1,0 +1,7 @@
+{
+  "title": "Find Minimum in Rotated Sorted Array",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+  "tags": ["binary search", "array"],
+  "order": 6
+}

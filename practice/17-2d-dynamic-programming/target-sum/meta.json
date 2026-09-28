@@ -1,0 +1,7 @@
+{
+  "title": "Target Sum",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/target-sum/",
+  "tags": ["dynamic programming", "0/1 knapsack"],
+  "order": 5
+}

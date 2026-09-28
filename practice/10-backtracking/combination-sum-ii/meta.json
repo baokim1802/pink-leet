@@ -1,0 +1,7 @@
+{
+  "title": "Combination Sum II",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/combination-sum-ii/",
+  "tags": ["backtracking", "duplicates", "pruning"],
+  "order": 6
+}

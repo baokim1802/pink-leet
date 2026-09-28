@@ -1,0 +1,7 @@
+{
+  "title": "Kth Smallest Element in a BST",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+  "tags": ["tree", "bst", "inorder"],
+  "order": 12
+}

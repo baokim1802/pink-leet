@@ -1,0 +1,7 @@
+{
+  "title": "Rotate Image",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/rotate-image/",
+  "tags": ["matrix", "math"],
+  "order": 6
+}

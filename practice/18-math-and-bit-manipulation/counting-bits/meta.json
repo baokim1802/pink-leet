@@ -1,0 +1,7 @@
+{
+  "title": "Counting Bits",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/counting-bits/",
+  "tags": ["bit manipulation", "dynamic programming"],
+  "order": 3
+}

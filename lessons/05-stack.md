@@ -149,6 +149,10 @@ Answer: `6`. Two lessons hiding here: the **order of pops** matters for `-` and 
 - [Valid Parentheses](#/practice/05-stack/valid-parentheses) — Easy
 - [Min Stack](#/practice/05-stack/min-stack) — Medium
 - [Daily Temperatures](#/practice/05-stack/daily-temperatures) — Medium
+- [Asteroid Collision](#/practice/05-stack/asteroid-collision) — Medium
+- [Decode String](#/practice/05-stack/decode-string) — Medium
+- [Car Fleet](#/practice/05-stack/car-fleet) — Medium
+- [Largest Rectangle in Histogram](#/practice/05-stack/largest-rectangle-in-histogram) — Hard
 
 ## Before moving on
 

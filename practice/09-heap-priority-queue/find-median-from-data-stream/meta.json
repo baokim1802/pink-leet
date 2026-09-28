@@ -1,0 +1,7 @@
+{
+  "title": "Find Median from Data Stream",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/find-median-from-data-stream/",
+  "tags": ["heap", "two heaps", "design"],
+  "order": 7
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Path With Minimum Effort",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/path-with-minimum-effort/",
+  "tags": ["graph", "dijkstra", "heap", "grid"],
+  "order": 2
+}

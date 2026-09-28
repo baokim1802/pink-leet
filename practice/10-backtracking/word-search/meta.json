@@ -1,0 +1,7 @@
+{
+  "title": "Word Search",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/word-search/",
+  "tags": ["backtracking", "matrix", "dfs"],
+  "order": 7
+}

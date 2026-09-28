@@ -1,0 +1,7 @@
+{
+  "title": "Subarray Sum Equals K",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/subarray-sum-equals-k/",
+  "tags": ["hash map", "prefix sum"],
+  "order": 10
+}

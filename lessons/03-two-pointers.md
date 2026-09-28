@@ -146,8 +146,11 @@ One pass → `O(n)` time. Every step places one number and discards one end — 
 ## Practice
 
 - [Valid Palindrome](#/practice/03-two-pointers/valid-palindrome) — Easy
+- [Move Zeroes](#/practice/03-two-pointers/move-zeroes) — Easy
 - [Two Sum II - Input Array Is Sorted](#/practice/03-two-pointers/two-sum-ii-input-array-is-sorted) — Medium
 - [3Sum](#/practice/03-two-pointers/3sum) — Medium
+- [Container With Most Water](#/practice/03-two-pointers/container-with-most-water) — Medium
+- [Trapping Rain Water](#/practice/03-two-pointers/trapping-rain-water) — Hard
 
 ## Before moving on
 

@@ -1,0 +1,7 @@
+{
+  "title": "Longest Palindromic Substring",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/longest-palindromic-substring/",
+  "tags": ["dynamic programming", "strings", "expand around center"],
+  "order": 10
+}

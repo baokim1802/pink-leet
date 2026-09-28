@@ -1,0 +1,7 @@
+{
+  "title": "Longest Increasing Path in a Matrix",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
+  "tags": ["dynamic programming", "memoized dfs", "grid dp"],
+  "order": 9
+}

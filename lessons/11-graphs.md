@@ -212,9 +212,19 @@ Because BFS explores in rings of equal distance, the first time we pop the targe
 
 ## Practice
 
+- [Flood Fill](#/practice/11-graphs/flood-fill) — Easy
+- [Find if Path Exists in Graph](#/practice/11-graphs/find-if-path-exists-in-graph) — Easy
 - [Number of Islands](#/practice/11-graphs/number-of-islands) — Medium
 - [Rotting Oranges](#/practice/11-graphs/rotting-oranges) — Medium
 - [Course Schedule](#/practice/11-graphs/course-schedule) — Medium
+- [Max Area of Island](#/practice/11-graphs/max-area-of-island) — Medium
+- [Number of Provinces](#/practice/11-graphs/number-of-provinces) — Medium
+- [01 Matrix](#/practice/11-graphs/01-matrix) — Medium
+- [Pacific Atlantic Water Flow](#/practice/11-graphs/pacific-atlantic-water-flow) — Medium
+- [Surrounded Regions](#/practice/11-graphs/surrounded-regions) — Medium
+- [Clone Graph](#/practice/11-graphs/clone-graph) — Medium
+- [Course Schedule II](#/practice/11-graphs/course-schedule-ii) — Medium
+- [Word Ladder](#/practice/11-graphs/word-ladder) — Hard
 
 ## Before moving on
 

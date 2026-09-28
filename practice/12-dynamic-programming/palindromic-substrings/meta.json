@@ -1,0 +1,7 @@
+{
+  "title": "Palindromic Substrings",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/palindromic-substrings/",
+  "tags": ["dynamic programming", "strings", "expand around center"],
+  "order": 9
+}

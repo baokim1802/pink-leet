@@ -1,0 +1,7 @@
+{
+  "title": "Maximum Subarray",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/maximum-subarray/",
+  "tags": ["greedy", "kadane", "array"],
+  "order": 3
+}

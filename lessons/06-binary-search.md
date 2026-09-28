@@ -155,8 +155,12 @@ First `m` with `m² > 10` is `4`, so the answer is `3`. Five steps for a range o
 ## Practice
 
 - [Binary Search](#/practice/06-binary-search/binary-search) — Easy
+- [Search Insert Position](#/practice/06-binary-search/search-insert-position) — Easy
 - [Search in Rotated Sorted Array](#/practice/06-binary-search/search-in-rotated-sorted-array) — Medium
 - [Koko Eating Bananas](#/practice/06-binary-search/koko-eating-bananas) — Medium
+- [Search a 2D Matrix](#/practice/06-binary-search/search-a-2d-matrix) — Medium
+- [Find Minimum in Rotated Sorted Array](#/practice/06-binary-search/find-minimum-in-rotated-sorted-array) — Medium
+- [Time Based Key-Value Store](#/practice/06-binary-search/time-based-key-value-store) — Medium
 
 ## Before moving on
 

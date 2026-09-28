@@ -1,0 +1,7 @@
+{
+  "title": "N-Queens",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/n-queens/",
+  "tags": ["backtracking", "matrix", "hash set"],
+  "order": 9
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Largest Rectangle in Histogram",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+  "tags": ["stack", "monotonic stack"],
+  "order": 7
+}

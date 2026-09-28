@@ -1,0 +1,7 @@
+{
+  "title": "Word Search II",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/word-search-ii/",
+  "tags": ["trie", "backtracking", "matrix"],
+  "order": 3
+}

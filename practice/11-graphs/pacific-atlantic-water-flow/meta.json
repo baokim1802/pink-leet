@@ -1,0 +1,7 @@
+{
+  "title": "Pacific Atlantic Water Flow",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+  "tags": ["graph", "dfs", "bfs", "grid", "multi-source bfs"],
+  "order": 9
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Lowest Common Ancestor of a Binary Search Tree",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+  "tags": ["tree", "bst"],
+  "order": 9
+}

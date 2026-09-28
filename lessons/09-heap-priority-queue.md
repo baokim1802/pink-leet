@@ -202,6 +202,9 @@ The heap never holds more than `k` items, so with `N` total elements this is `O(
 - [Kth Largest Element in a Stream](#/practice/09-heap-priority-queue/kth-largest-element-in-a-stream) — Easy
 - [Last Stone Weight](#/practice/09-heap-priority-queue/last-stone-weight) — Easy
 - [K Closest Points to Origin](#/practice/09-heap-priority-queue/k-closest-points-to-origin) — Medium
+- [Kth Largest Element in an Array](#/practice/09-heap-priority-queue/kth-largest-element-in-an-array) — Medium
+- [Task Scheduler](#/practice/09-heap-priority-queue/task-scheduler) — Medium
+- [Find Median from Data Stream](#/practice/09-heap-priority-queue/find-median-from-data-stream) — Hard
 
 ## Before moving on
 

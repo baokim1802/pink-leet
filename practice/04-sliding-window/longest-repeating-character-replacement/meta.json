@@ -1,0 +1,7 @@
+{
+  "title": "Longest Repeating Character Replacement",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+  "tags": ["sliding window", "hash map", "string"],
+  "order": 5
+}

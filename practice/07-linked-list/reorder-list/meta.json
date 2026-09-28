@@ -1,0 +1,7 @@
+{
+  "title": "Reorder List",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/reorder-list/",
+  "tags": ["linked list", "fast & slow pointers", "reversal", "merge"],
+  "order": 7
+}

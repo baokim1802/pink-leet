@@ -1,0 +1,7 @@
+{
+  "title": "Interval List Intersections",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/interval-list-intersections/",
+  "tags": ["intervals", "two pointers"],
+  "order": 6
+}

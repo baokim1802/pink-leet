@@ -1,11 +1,13 @@
 // Sanity check: every reference.js passes its tests and every solution.js stub loads.
-//   npm run check
+//   npm run check                    -> every problem
+//   npm run check -- 07-linked-list  -> only problems whose id contains one of the args
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { listProblems, PRACTICE_DIR } = require('../lib/catalog');
 
 let bad = 0;
-for (const p of listProblems()) {
+const filters = process.argv.slice(2);
+for (const p of listProblems().filter((x) => !filters.length || filters.some((f) => x.id.includes(f)))) {
   const dir = path.join(PRACTICE_DIR, p.id);
   const run = (file) => {
     const c = spawnSync(process.execPath, [path.join(__dirname, 'run-json.js'), dir, file], { encoding: 'utf8', timeout: 10000 });

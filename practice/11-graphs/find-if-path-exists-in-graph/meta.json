@@ -1,0 +1,7 @@
+{
+  "title": "Find if Path Exists in Graph",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/find-if-path-exists-in-graph/",
+  "tags": ["graph", "bfs", "dfs", "union find"],
+  "order": 5
+}

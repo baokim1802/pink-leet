@@ -1,0 +1,7 @@
+{
+  "title": "Longest Increasing Subsequence",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/longest-increasing-subsequence/",
+  "tags": ["dynamic programming", "1D DP", "binary search"],
+  "order": 12
+}

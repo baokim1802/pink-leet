@@ -1,0 +1,7 @@
+{
+  "title": "Surrounded Regions",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/surrounded-regions/",
+  "tags": ["graph", "dfs", "bfs", "grid", "in place"],
+  "order": 10
+}

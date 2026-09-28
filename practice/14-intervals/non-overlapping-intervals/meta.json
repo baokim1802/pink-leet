@@ -1,0 +1,7 @@
+{
+  "title": "Non-overlapping Intervals",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/non-overlapping-intervals/",
+  "tags": ["intervals", "greedy", "sorting"],
+  "order": 4
+}

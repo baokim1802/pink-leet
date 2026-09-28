@@ -1,0 +1,7 @@
+{
+  "title": "Partition Labels",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/partition-labels/",
+  "tags": ["greedy", "hash map", "two pointers"],
+  "order": 7
+}

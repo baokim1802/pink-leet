@@ -148,8 +148,14 @@ Two passes of `O(n)` → `O(n)` time. The map holds at most 26 keys for lowercas
 
 - [Two Sum](#/practice/02-arrays-and-hashing/two-sum) — Easy
 - [Contains Duplicate](#/practice/02-arrays-and-hashing/contains-duplicate) — Easy
+- [Valid Anagram](#/practice/02-arrays-and-hashing/valid-anagram) — Easy
+- [Majority Element](#/practice/02-arrays-and-hashing/majority-element) — Easy
 - [Group Anagrams](#/practice/02-arrays-and-hashing/group-anagrams) — Medium
 - [Top K Frequent Elements](#/practice/02-arrays-and-hashing/top-k-frequent-elements) — Medium
+- [Product of Array Except Self](#/practice/02-arrays-and-hashing/product-of-array-except-self) — Medium
+- [Valid Sudoku](#/practice/02-arrays-and-hashing/valid-sudoku) — Medium
+- [Longest Consecutive Sequence](#/practice/02-arrays-and-hashing/longest-consecutive-sequence) — Medium
+- [Subarray Sum Equals K](#/practice/02-arrays-and-hashing/subarray-sum-equals-k) — Medium
 
 ## Before moving on
 

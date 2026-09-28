@@ -152,7 +152,10 @@ Answer: `2` (the subarray `[4, 3]`). Notice `left` moved from 0 to 4 over the wh
 
 - [Best Time to Buy and Sell Stock](#/practice/04-sliding-window/best-time-to-buy-and-sell-stock) — Easy
 - [Longest Substring Without Repeating Characters](#/practice/04-sliding-window/longest-substring-without-repeating-characters) — Medium
+- [Permutation in String](#/practice/04-sliding-window/permutation-in-string) — Medium
+- [Longest Repeating Character Replacement](#/practice/04-sliding-window/longest-repeating-character-replacement) — Medium
 - [Minimum Window Substring](#/practice/04-sliding-window/minimum-window-substring) — Hard
+- [Sliding Window Maximum](#/practice/04-sliding-window/sliding-window-maximum) — Hard
 
 ## Before moving on
 

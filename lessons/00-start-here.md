@@ -55,15 +55,20 @@ npm run new -- 02-arrays-and-hashing contains-duplicate-ii Easy   # add your own
 
 ## A suggested plan
 
-| Week | Focus |
+About 150 problems over roughly 20 weeks. Move on from a topic once you can solve a **new** Medium in it in about 25 minutes, explaining your approach out loud first.
+
+| Weeks | Focus |
 |---|---|
-| 1 | Big-O & JS toolkit, Arrays & Hashing, Two Pointers |
-| 2 | Sliding Window, Stack, Binary Search |
-| 3 | Linked List, Trees |
-| 4 | Heap / Priority Queue, Backtracking |
-| 5 | Graphs |
-| 6 | Dynamic Programming |
-| 7+ | Interview Playbook, mock interviews, redo 🔁 problems, add new ones with `npm run new` |
+| 1 | Big-O & JS toolkit, Arrays & Hashing |
+| 2 | Two Pointers, Sliding Window |
+| 3 | Stack, Binary Search |
+| 4–5 | Linked List, Heap / Priority Queue |
+| 6–8 | Trees, Tries |
+| 9–10 | Backtracking |
+| 11–13 | Graphs, Advanced Graphs |
+| 14–16 | Dynamic Programming, 2D Dynamic Programming |
+| 17 | Intervals, Greedy, Math & Bit Manipulation |
+| 18–20 | Interview Playbook: timed mock interviews, redo every 🔁 problem from scratch |
 
 About **1–2 problems a day** plus a lesson every few days is a strong, sustainable pace. Consistency beats cramming. 🐢💕
 

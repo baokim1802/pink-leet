@@ -1,0 +1,7 @@
+{
+  "title": "Balanced Binary Tree",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/balanced-binary-tree/",
+  "tags": ["tree", "dfs", "recursion"],
+  "order": 8
+}

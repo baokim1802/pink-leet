@@ -1,0 +1,7 @@
+{
+  "title": "Serialize and Deserialize Binary Tree",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+  "tags": ["tree", "dfs", "bfs", "design", "string"],
+  "order": 15
+}

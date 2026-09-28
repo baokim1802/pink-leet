@@ -217,6 +217,17 @@ The `true` bubbles up through `||`, and the right side (`8`) is never explored t
 - [Invert Binary Tree](#/practice/08-trees/invert-binary-tree) — Easy
 - [Binary Tree Level Order Traversal](#/practice/08-trees/binary-tree-level-order-traversal) — Medium
 - [Validate Binary Search Tree](#/practice/08-trees/validate-binary-search-tree) — Medium
+- [Same Tree](#/practice/08-trees/same-tree) — Easy
+- [Subtree of Another Tree](#/practice/08-trees/subtree-of-another-tree) — Easy
+- [Diameter of Binary Tree](#/practice/08-trees/diameter-of-binary-tree) — Easy
+- [Balanced Binary Tree](#/practice/08-trees/balanced-binary-tree) — Easy
+- [Lowest Common Ancestor of a Binary Search Tree](#/practice/08-trees/lowest-common-ancestor-of-a-binary-search-tree) — Medium
+- [Binary Tree Right Side View](#/practice/08-trees/binary-tree-right-side-view) — Medium
+- [Count Good Nodes in Binary Tree](#/practice/08-trees/count-good-nodes-in-binary-tree) — Medium
+- [Kth Smallest Element in a BST](#/practice/08-trees/kth-smallest-element-in-a-bst) — Medium
+- [Construct Binary Tree from Preorder and Inorder Traversal](#/practice/08-trees/construct-binary-tree-from-preorder-and-inorder-traversal) — Medium
+- [Binary Tree Maximum Path Sum](#/practice/08-trees/binary-tree-maximum-path-sum) — Hard
+- [Serialize and Deserialize Binary Tree](#/practice/08-trees/serialize-and-deserialize-binary-tree) — Hard
 
 ## Before moving on
 
