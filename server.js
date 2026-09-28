@@ -126,6 +126,20 @@ async function api(req, res, url) {
     }
   }
 
+  if (resource === 'cheatsheets' && !parts[1] && req.method === 'GET') {
+    return send(res, 200, catalog.listCheatsheets());
+  }
+  if (resource === 'cheatsheets' && !parts[1] && req.method === 'POST') {
+    const { title } = await readBody(req);
+    if (typeof title !== 'string' || !title.trim()) return send(res, 400, { error: 'title is required' });
+    return send(res, 200, { id: catalog.createCheatsheet(title.trim().slice(0, 60)) });
+  }
+  if (resource === 'cheatsheets' && parts[1] && req.method === 'PUT') {
+    const { markdown } = await readBody(req);
+    if (typeof markdown !== 'string') return send(res, 400, { error: 'markdown must be a string' });
+    return catalog.saveCheatsheet(parts[1], markdown) ? send(res, 200, { saved: true }) : send(res, 404, { error: 'Cheat sheet not found' });
+  }
+
   if (resource === 'sync' && req.method === 'POST') {
     return send(res, 200, sync());
   }

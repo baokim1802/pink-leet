@@ -10,12 +10,14 @@ Welcome to your study space! 🎀 This page explains how everything fits togethe
 | **💻 Practice** | Real LeetCode problems grouped by topic. Each problem has a statement, hints, tests, and a reference solution you have to click through a warning to see. |
 | **🎯 Goals & Tracker** | Your daily and weekly targets, a countdown to your big goal, your own milestones, and an activity heatmap. |
 | **🏠 Home** | What to do next, your streak, and today's progress. |
+| **📝 Cheat sheet** | Quick JS syntax (Set, Map, arrays, strings, sorting…) in a drawer you can open from any page with `Ctrl+/`. Click ✏️ to edit it or add your own notes. |
 
 Everything is saved to plain files in this folder:
 
 ```
 leet/
 ├── lessons/            ← one markdown file per topic
+├── cheatsheets/        ← quick-syntax notes (the 📝 drawer)
 ├── practice/<topic>/<problem>/
 │   ├── README.md       ← problem statement + hints
 │   ├── solution.js     ← ✏️ YOUR code goes here

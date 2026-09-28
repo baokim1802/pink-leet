@@ -9,6 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply the saved theme before first paint so there's no flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('leet:theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
 </head>
 <body>
   <div class="layout">
@@ -17,6 +26,8 @@
       <div class="loading">Loading your study space… 🌸</div>
     </main>
   </div>
+ <button id="cs-tab" class="cs-tab" title="Cheat sheet (Ctrl+/)">📝 <span>Cheat sheet</span></button>
+  <aside id="cheatsheet" class="cheatsheet" aria-hidden="true" aria-label="Cheat sheet"></aside>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script type="module" src="app.js"></script>
 </body>

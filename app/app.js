@@ -1,4 +1,5 @@
 import { renderMarkdown, highlightJs } from './md.js';
+import { initCheatsheet, toggleCheatsheet } from './cheatsheet.js';
 
 // ---------- state & helpers ----------
 const state = { lessons: [], problems: [], progress: null };
@@ -114,6 +115,15 @@ function stats() {
   };
 }
 
+// ---------- theme ----------
+const theme = () => document.documentElement.dataset.theme || 'light';
+function toggleTheme() {
+  const next = theme() === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem('leet:theme', next); } catch {}
+  renderSidebar();
+}
+
 // ---------- sidebar ----------
 function renderSidebar() {
   const route = location.hash || '#/';
@@ -126,9 +136,13 @@ function renderSidebar() {
   ];
   const isActive = (href) => (href === '#/' ? route === '#/' || route === '#' : route.startsWith(href));
   $side.innerHTML = `
-    <a class="brand" href="#/"><span class="bow">🎀</span><span><b>Leet Study</b><small>DSA in JavaScript</small></span></a>
+    <div class="row brand-row">
+      <a class="brand" href="#/"><span class="bow">🎀</span><span><b>Leet Study</b><small>DSA in JavaScript</small></span></a>
+      <button class="theme-toggle" id="theme" title="Switch to ${theme() === 'dark' ? 'light' : 'dark'} mode">${theme() === 'dark' ? '☀️' : '🌙'}</button>
+    </div>
     <nav class="nav">
       ${nav.map(([href, ico, label, count]) => `<a href="${href}" class="${isActive(href) ? 'active' : ''}"><span>${ico}</span>${label}<span class="count">${count}</span></a>`).join('')}
+      <a href="#" id="nav-cs"><span>📝</span>Cheat sheet<span class="count"><kbd>Ctrl</kbd>+<kbd>/</kbd></span></a>
     </nav>
     <div>
       <div class="side-title">Roadmap</div>
@@ -138,15 +152,17 @@ function renderSidebar() {
           const active = route === `#/lessons/${l.id}` || route.startsWith(`#/practice/${l.id}/`);
           return `<a href="#/lessons/${l.id}" class="${active ? 'active' : ''}">
             <span class="dot">${lessonDone(l.id) ? '💗' : String(l.number).padStart(2, '0')}</span>
-            <span>${esc(l.title)}</span>
+            <span title="${esc(l.title)}">${esc(l.title)}</span>
             ${t.total ? `<span class="mini">${t.solved}/${t.total}</span>` : ''}
           </a>`;
         }).join('')}
       </div>
     </div>
     <button class="btn sync-btn" id="sync" title="Commit & push your solutions, notes and progress">☁️ Save to GitHub</button>
-    <div class="side-foot">${esc(quoteOfTheDay())}</div>`;
+`;
   document.getElementById('sync').addEventListener('click', syncToGitHub);
+  document.getElementById('theme').addEventListener('click', toggleTheme);
+  document.getElementById('nav-cs').addEventListener('click', (e) => { e.preventDefault(); toggleCheatsheet(); });
 }
 
 async function syncToGitHub(e) {
@@ -173,8 +189,8 @@ function ring(value, max, label) {
   const pct = max ? Math.min(value / max, 1) : 0;
   return `<div class="ring">
     <svg width="120" height="120" viewBox="0 0 120 120">
-      <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#ffb0c9"/><stop offset="1" stop-color="#ec72a0"/></linearGradient></defs>
-      <circle cx="60" cy="60" r="${r}" fill="none" stroke="#ffe3ed" stroke-width="12"/>
+      <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" style="stop-color:var(--pink-300)"/><stop offset="1" style="stop-color:var(--pink-500)"/></linearGradient></defs>
+      <circle cx="60" cy="60" r="${r}" fill="none" style="stroke:var(--pink-100)" stroke-width="12"/>
       <circle cx="60" cy="60" r="${r}" fill="none" stroke="url(#rg)" stroke-width="12" stroke-linecap="round"
         stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - pct)}" style="transition: stroke-dashoffset .8s"/>
     </svg>
@@ -202,7 +218,7 @@ function heatmap(weeks = 20) {
     }
     html += '</div>';
   }
-  html += '</div><div class="legend">less <span class="cell" style="background:#fbe9f0"></span><span class="cell l1" style="background:var(--pink-200)"></span><span class="cell" style="background:var(--pink-300)"></span><span class="cell" style="background:var(--pink-400)"></span><span class="cell" style="background:var(--pink-600)"></span> more</div>';
+  html += '</div><div class="legend">less <span class="cell"></span><span class="cell l1"></span><span class="cell l2"></span><span class="cell l3"></span><span class="cell l4"></span> more</div>';
   return html;
 }
 
@@ -790,6 +806,7 @@ window.addEventListener('focus', async () => {
   if (current && !current.dirty) current.reload?.(true);
 });
 
+initCheatsheet();
 refresh().then(route).catch((err) => {
   $main.innerHTML = `<div class="empty"><div class="big">🥺</div>Couldn't reach the study server.<br>Is <code>npm start</code> running?<br><small>${esc(err.message)}</small></div>`;
 });

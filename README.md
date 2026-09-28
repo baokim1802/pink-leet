@@ -27,6 +27,7 @@ No dependencies to install.
 
 ```
 lessons/                         one markdown lesson per topic (00 → 13)
+cheatsheets/                     quick-syntax notes shown in the 📝 drawer
 practice/<topic>/<problem>/
   README.md                      statement + hints
   solution.js                    ✏️ your code
@@ -38,6 +39,25 @@ app/  lib/  scripts/  server.js  the app itself
 ```
 
 The folder names under `practice/` match the lesson filenames, so every lesson links to its problems.
+
+## Cheat sheet
+
+Open it from any page with the 📝 tab on the right, the sidebar link, or <kbd>Ctrl</kbd>+<kbd>/</kbd>.
+To edit a sheet, click ✏️ next to its name. **+ New sheet** creates a new one. You can also edit
+`cheatsheets/*.md` in any editor:
+
+````md
+# Set & Map                ← sheet title (once, at the top)
+
+## Set                     ← each ## heading is one collapsible note
+Unique values of any type.
+```js
+const mySet = new Set();
+mySet.add(1);
+```
+````
+
+The 🌙 button next to the logo switches between light and dark mode.
 
 ## Commands
 
