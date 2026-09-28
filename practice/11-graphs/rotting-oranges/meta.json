@@ -1,0 +1,7 @@
+{
+  "title": "Rotting Oranges",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/rotting-oranges/",
+  "tags": ["graph", "bfs", "multi-source bfs", "grid"],
+  "order": 2
+}

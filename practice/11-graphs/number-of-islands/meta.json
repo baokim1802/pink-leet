@@ -1,0 +1,7 @@
+{
+  "title": "Number of Islands",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/number-of-islands/",
+  "tags": ["graph", "dfs", "bfs", "grid"],
+  "order": 1
+}

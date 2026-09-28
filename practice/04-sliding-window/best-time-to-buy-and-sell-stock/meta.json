@@ -1,0 +1,7 @@
+{
+  "title": "Best Time to Buy and Sell Stock",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+  "tags": ["sliding window", "greedy"],
+  "order": 1
+}

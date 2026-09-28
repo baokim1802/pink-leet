@@ -1,0 +1,7 @@
+{
+  "title": "Binary Tree Level Order Traversal",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+  "tags": ["tree", "bfs", "queue"],
+  "order": 3
+}

@@ -1,0 +1,7 @@
+{
+  "title": "3Sum",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/3sum/",
+  "tags": ["two pointers", "sorting"],
+  "order": 3
+}

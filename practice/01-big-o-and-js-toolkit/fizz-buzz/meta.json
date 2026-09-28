@@ -1,0 +1,7 @@
+{
+  "title": "Fizz Buzz",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/fizz-buzz/",
+  "tags": ["math", "string"],
+  "order": 1
+}

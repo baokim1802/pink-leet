@@ -1,0 +1,7 @@
+{
+  "title": "Coin Change",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/coin-change/",
+  "tags": ["dynamic programming", "unbounded knapsack"],
+  "order": 3
+}

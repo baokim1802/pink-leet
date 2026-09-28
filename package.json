@@ -1,0 +1,16 @@
+{
+  "name": "leet-study",
+  "version": "1.0.0",
+  "private": true,
+  "description": "🎀 A cozy JavaScript DSA / LeetCode study space: lessons, practice, goals and tracker.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node -r ./scripts/guard.js server.js",
+    "test": "node -r ./scripts/guard.js scripts/test.js",
+    "new": "node -r ./scripts/guard.js scripts/new.js",
+    "check": "node -r ./scripts/guard.js scripts/check.js",
+    "sync": "node -r ./scripts/guard.js scripts/sync.js"
+  }
+}

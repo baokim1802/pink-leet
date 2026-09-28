@@ -1,0 +1,7 @@
+{
+  "title": "Kth Largest Element in a Stream",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+  "tags": ["heap", "design"],
+  "order": 2
+}

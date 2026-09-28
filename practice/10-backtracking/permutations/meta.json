@@ -1,0 +1,7 @@
+{
+  "title": "Permutations",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/permutations/",
+  "tags": ["backtracking"],
+  "order": 2
+}

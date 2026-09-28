@@ -1,0 +1,7 @@
+{
+  "title": "Contains Duplicate",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/contains-duplicate/",
+  "tags": ["hash set"],
+  "order": 2
+}

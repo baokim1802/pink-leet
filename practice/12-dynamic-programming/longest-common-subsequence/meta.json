@@ -1,0 +1,7 @@
+{
+  "title": "Longest Common Subsequence",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/longest-common-subsequence/",
+  "tags": ["dynamic programming", "2D DP", "strings"],
+  "order": 4
+}

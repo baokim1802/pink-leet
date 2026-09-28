@@ -1,0 +1,7 @@
+{
+  "title": "Last Stone Weight",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/last-stone-weight/",
+  "tags": ["heap", "simulation"],
+  "order": 3
+}

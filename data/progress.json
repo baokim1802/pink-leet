@@ -1,0 +1,19 @@
+{
+  "name": "Kim",
+  "problems": {},
+  "lessons": {},
+  "activity": {},
+  "goals": {
+    "dailyProblems": 2,
+    "weeklyProblems": 10,
+    "targetDate": "2027-02-18",
+    "targetLabel": "Interview ready 💼",
+    "custom": [
+      {
+        "id": "mulkboh7",
+        "text": "Kim is 1 and Alex is 23",
+        "done": false
+      }
+    ]
+  }
+}

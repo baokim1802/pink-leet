@@ -1,0 +1,7 @@
+{
+  "title": "Remove Nth Node From End of List",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+  "tags": ["linked list", "dummy head", "two pointers"],
+  "order": 4
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Invert Binary Tree",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/invert-binary-tree/",
+  "tags": ["tree", "dfs", "recursion"],
+  "order": 2
+}

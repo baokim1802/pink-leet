@@ -1,0 +1,7 @@
+{
+  "title": "Min Stack",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/min-stack/",
+  "tags": ["stack", "design"],
+  "order": 2
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Validate Binary Search Tree",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/validate-binary-search-tree/",
+  "tags": ["tree", "dfs", "bst"],
+  "order": 4
+}

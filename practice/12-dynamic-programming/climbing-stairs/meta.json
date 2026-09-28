@@ -1,0 +1,7 @@
+{
+  "title": "Climbing Stairs",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/climbing-stairs/",
+  "tags": ["dynamic programming", "1D DP"],
+  "order": 1
+}

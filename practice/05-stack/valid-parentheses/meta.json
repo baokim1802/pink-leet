@@ -1,0 +1,7 @@
+{
+  "title": "Valid Parentheses",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/valid-parentheses/",
+  "tags": ["stack", "string"],
+  "order": 1
+}

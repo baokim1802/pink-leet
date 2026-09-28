@@ -1,0 +1,7 @@
+{
+  "title": "Two Sum",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/two-sum/",
+  "tags": ["hash map"],
+  "order": 1
+}

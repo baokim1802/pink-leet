@@ -1,0 +1,7 @@
+{
+  "title": "House Robber",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/house-robber/",
+  "tags": ["dynamic programming", "1D DP"],
+  "order": 2
+}

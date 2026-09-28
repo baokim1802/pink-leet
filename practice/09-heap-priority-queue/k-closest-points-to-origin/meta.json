@@ -1,0 +1,7 @@
+{
+  "title": "K Closest Points to Origin",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/k-closest-points-to-origin/",
+  "tags": ["heap", "sorting", "geometry"],
+  "order": 4
+}

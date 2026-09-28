@@ -1,0 +1,7 @@
+{
+  "title": "Subsets",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/subsets/",
+  "tags": ["backtracking", "bit manipulation"],
+  "order": 1
+}

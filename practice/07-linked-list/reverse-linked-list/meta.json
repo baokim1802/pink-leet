@@ -1,0 +1,7 @@
+{
+  "title": "Reverse Linked List",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/reverse-linked-list/",
+  "tags": ["linked list", "pointers"],
+  "order": 1
+}

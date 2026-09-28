@@ -1,0 +1,7 @@
+{
+  "title": "Merge Two Sorted Lists",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/merge-two-sorted-lists/",
+  "tags": ["linked list", "dummy head", "two pointers"],
+  "order": 2
+}

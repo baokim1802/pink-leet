@@ -1,0 +1,7 @@
+{
+  "title": "Koko Eating Bananas",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/koko-eating-bananas/",
+  "tags": ["binary search", "binary search on answer"],
+  "order": 3
+}

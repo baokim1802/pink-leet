@@ -1,0 +1,7 @@
+{
+  "title": "Minimum Window Substring",
+  "difficulty": "Hard",
+  "leetcode": "https://leetcode.com/problems/minimum-window-substring/",
+  "tags": ["sliding window", "hash map", "string"],
+  "order": 3
+}

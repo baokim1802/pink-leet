@@ -1,0 +1,7 @@
+{
+  "title": "Course Schedule",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/course-schedule/",
+  "tags": ["graph", "topological sort", "cycle detection"],
+  "order": 3
+}

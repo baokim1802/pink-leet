@@ -1,0 +1,7 @@
+{
+  "title": "Linked List Cycle",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/linked-list-cycle/",
+  "tags": ["linked list", "fast & slow pointers"],
+  "order": 3
+}

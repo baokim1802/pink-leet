@@ -1,0 +1,7 @@
+{
+  "title": "Running Sum of 1d Array",
+  "difficulty": "Easy",
+  "leetcode": "https://leetcode.com/problems/running-sum-of-1d-array/",
+  "tags": ["array", "prefix sum"],
+  "order": 2
+}
