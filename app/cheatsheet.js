@@ -30,6 +30,7 @@ function parseSheet(sheet) {
 
 async function load() {
   const res = await fetch('/api/cheatsheets');
+  if (!res.ok) throw new Error(res.status === 404 ? 'outdated-server' : `HTTP ${res.status}`);
   sheets = (await res.json()).map(parseSheet);
 }
 
@@ -179,7 +180,14 @@ export async function toggleCheatsheet(force) {
   if (open) {
     // reload each time it opens so edits to cheatsheets/*.md show up without a page refresh
     if (!editing) {
-      await load();
+      try {
+        await load();
+      } catch (err) {
+        $drawer.querySelector('.cs-body').innerHTML = err.message === 'outdated-server'
+          ? '<div class="empty"><div class="big">🔄</div>The app server is running an older version.<br>Restart it: press <kbd>Ctrl</kbd>+<kbd>C</kbd> in its terminal, then run <code>npm start</code>.</div>'
+          : `<div class="empty"><div class="big">🥺</div>Couldn't load the cheat sheets (${esc(err.message)}).</div>`;
+        return;
+      }
       render();
       applySearch();
     }

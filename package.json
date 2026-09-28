@@ -7,7 +7,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "node -r ./scripts/guard.js server.js",
+    "start": "node scripts/start.js",
     "test": "node -r ./scripts/guard.js scripts/test.js",
     "new": "node -r ./scripts/guard.js scripts/new.js",
     "check": "node -r ./scripts/guard.js scripts/check.js",
