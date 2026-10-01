@@ -129,10 +129,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .loading { padding: 60px; text-align: center; color: var(--ink-soft); }
 
 .brand { display: flex; align-items: center; gap: 10px; padding: 4px 8px; text-decoration: none !important; }
-.brand .bow { font-size: 30px; animation: wiggle 4s ease-in-out infinite; display: inline-block; }
+.brand .bow { font-size: 30px; display: inline-block; }
 .brand b { font-family: var(--font-head); font-size: 21px; color: var(--pink-600); letter-spacing: .2px; }
 .brand small { display: block; font-size: 12px; color: var(--ink-soft); margin-top: -4px; }
-@keyframes wiggle { 0%, 90%, 100% { transform: rotate(0); } 93% { transform: rotate(-12deg); } 96% { transform: rotate(10deg); } }
 
 .nav { display: flex; flex-direction: column; gap: 2px; }
 .nav a {
@@ -235,8 +234,7 @@ select { cursor: pointer; }
 .hero h1 { margin: 0 0 6px; font-size: 30px; }
 .hero p { margin: 0; color: var(--ink-soft); font-size: 16px; max-width: 620px; }
 .hero .quote { margin-top: 14px; font-style: italic; color: var(--pink-600); font-weight: 600; }
-.hero .floaty { position: absolute; font-size: 30px; opacity: .8; animation: floaty 6s ease-in-out infinite; pointer-events: none; }
-@keyframes floaty { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(6deg); } }
+.hero .floaty { position: absolute; font-size: 30px; opacity: .8; pointer-events: none; }
 
 .stats { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 18px; }
 .stat { display: flex; align-items: center; gap: 14px; }
