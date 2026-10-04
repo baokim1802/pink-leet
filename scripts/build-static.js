@@ -16,14 +16,25 @@ const readIf = (...p) => (fs.existsSync(path.join(...p)) ? read(...p) : null);
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
-for (const f of fs.readdirSync(path.join(ROOT, 'app'))) {
-  fs.copyFileSync(path.join(ROOT, 'app', f), path.join(OUT, f));
+// GitHub Pages lets browsers cache files for 10 minutes, so right after a deploy a browser can mix the
+// new index.html with old CSS/JS. Every app file reference gets ?v=<hash of the app files> so a new
+// build always loads as one matching set.
+const appFiles = fs.readdirSync(path.join(ROOT, 'app')).sort();
+const version = require('crypto').createHash('sha1')
+  .update(appFiles.map((f) => f + read(ROOT, 'app', f)).join('\0')).digest('hex').slice(0, 10);
+const bust = (src) => src.replace(/(['"])(\.\/)?([\w-]+\.(?:js|css))\1/g, (m, q, dot, name) =>
+  (appFiles.includes(name) ? `${q}${dot || ''}${name}?v=${version}${q}` : m));
+
+for (const f of appFiles) {
+  if (f.endsWith('.js')) fs.writeFileSync(path.join(OUT, f), bust(read(ROOT, 'app', f)));
+  else fs.copyFileSync(path.join(ROOT, 'app', f), path.join(OUT, f));
 }
-const html = read(OUT, 'index.html').replace(
-  '<script type="module" src="app.js"></script>',
-  '<script>window.LEET_STATIC = true;</script>\n  <script type="module" src="app.js"></script>',
+const html = bust(read(OUT, 'index.html')).replace(
+  `<script type="module" src="app.js?v=${version}"></script>`,
+  `<script>window.LEET_STATIC = true;</script>\n  <script type="module" src="app.js?v=${version}"></script>`,
 );
 if (!html.includes('LEET_STATIC')) throw new Error('Could not mark index.html as static');
+if (!html.includes(`style.css?v=${version}`)) throw new Error('Could not version style.css in index.html');
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
 fs.writeFileSync(path.join(OUT, '.nojekyll'), ''); // serve files as-is on GitHub Pages
 
