@@ -487,6 +487,7 @@ kbd { font-family: var(--mono); font-size: 11px; background: var(--pink-50); bor
   :root[data-side="collapsed"] .backup-row { flex-direction: column; }
   :root[data-side="collapsed"] .sidebar .btn { padding-left: 0; padding-right: 0; width: 44px; justify-content: center; }
   :root[data-side="collapsed"] .sync-btn { margin-top: auto; }
+  :root[data-side="collapsed"] .main { max-width: none; }  /* use the room the sidebar gave up */
 }
 
 /* ---------- cheat sheet drawer ---------- */
