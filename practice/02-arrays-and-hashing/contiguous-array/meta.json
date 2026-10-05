@@ -1,0 +1,7 @@
+{
+  "title": "Contiguous Array",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/contiguous-array/",
+  "tags": ["hash map", "prefix sum"],
+  "order": 14
+}

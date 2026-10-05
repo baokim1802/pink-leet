@@ -19,6 +19,7 @@ Choosing the right **key** is the whole game. Two things that should be "the sam
 - "Contains duplicate", "first unique", "is there any repeat…" → set or counts.
 - "Group items that are equivalent under some rule" → map from a canonical key to a list.
 - "Most frequent / top k / majority" → count map, then sort or bucket.
+- "Count / longest **contiguous subarray** whose sum is…" → running total + map (prefix sums).
 - Constraints like `n ≤ 10⁵` rule out `O(n²)` — you need a single pass or sorting.
 - The input is **unsorted** and you're not allowed to (or don't want to) sort it.
 
@@ -123,6 +124,52 @@ function firstUniqChar(s) {
 
 Two passes of `O(n)` → `O(n)` time. The map holds at most 26 keys for lowercase letters → `O(1)` space. Notice the pattern: **count first, then query**.
 
+## Prefix sums (running totals)
+
+A **running total** answers "what's the sum of everything up to here?" Keep it lined up with the array, so `running[i]` **includes** `nums[i]`:
+
+```
+index:     0   1   2   3
+nums:    [ 3,  1,  4,  2 ]
+running: [ 3,  4,  8, 10 ]
+```
+
+**Sum of any slice = total through its end − total before its start.**
+
+- `nums[1..2]` = `running[2] - running[0]` = `8 - 3` = `5` ✔
+- `nums[0..2]` starts at index 0, so nothing comes before it: subtract `0` → `8`
+
+### Prefix sums + a hash map
+
+To count slices that add up to `k`, flip the question around, the same way Two Sum does:
+
+| | Two Sum | Slice sums to k |
+|---|---|---|
+| want | `a + b = target` | `current − earlier = k` |
+| the one you need | `a = target − b` | `earlier = current − k` |
+| ask the map | "have I seen it?" | "how many times have I seen it?" |
+
+Each earlier running total is one place a slice could start, so you don't need an array. Keep one `sum` and a map of totals seen so far:
+
+```js
+const seen = new Map([[0, 1]]); // "a total of 0 before anything" counts as seen once
+let sum = 0;
+let count = 0;
+for (const num of nums) {
+  sum += num;
+  count += seen.get(sum - k) || 0;          // 1. look up (only earlier totals are in the map)
+  seen.set(sum, (seen.get(sum) || 0) + 1);  // 2. then record this total
+}
+```
+
+The variations change **what you store** in the map:
+
+- **How many slices?** → total → count (Subarray Sum Equals K, Nice Subarrays)
+- **Longest slice?** → total → **first** index, seeded `0 → -1` (Contiguous Array)
+- **Divisible by k?** → use the remainder `((sum % k) + k) % k` as the key instead of the total
+
+Use this instead of a sliding window when the array can have **negative numbers**. Then growing the window doesn't always grow the sum.
+
 ## Complexity cheat sheet
 
 | Technique | Time | Space |
@@ -134,6 +181,7 @@ Two passes of `O(n)` → `O(n)` time. The map holds at most 26 keys for lowercas
 | Group by 26-count key | `O(n · k)` | `O(n · k)` |
 | Top k via sort by count | `O(n log n)` | `O(n)` |
 | Top k via bucket sort | `O(n)` | `O(n)` |
+| Prefix sums + map | `O(n)` | `O(n)` |
 
 ## Common mistakes
 
@@ -155,7 +203,16 @@ Two passes of `O(n)` → `O(n)` time. The map holds at most 26 keys for lowercas
 - [Product of Array Except Self](#/practice/02-arrays-and-hashing/product-of-array-except-self) — Medium
 - [Valid Sudoku](#/practice/02-arrays-and-hashing/valid-sudoku) — Medium
 - [Longest Consecutive Sequence](#/practice/02-arrays-and-hashing/longest-consecutive-sequence) — Medium
+
+Prefix sums, in order:
+
+- [Find Pivot Index](#/practice/02-arrays-and-hashing/find-pivot-index) — Easy
+- [Range Sum Query - Immutable](#/practice/02-arrays-and-hashing/range-sum-query-immutable) — Easy
 - [Subarray Sum Equals K](#/practice/02-arrays-and-hashing/subarray-sum-equals-k) — Medium
+- [Count Number of Nice Subarrays](#/practice/02-arrays-and-hashing/count-number-of-nice-subarrays) — Medium
+- [Contiguous Array](#/practice/02-arrays-and-hashing/contiguous-array) — Medium
+- [Subarray Sums Divisible by K](#/practice/02-arrays-and-hashing/subarray-sums-divisible-by-k) — Medium
+- [Continuous Subarray Sum](#/practice/02-arrays-and-hashing/continuous-subarray-sum) — Medium
 
 ## Before moving on
 
@@ -164,3 +221,4 @@ Two passes of `O(n)` → `O(n)` time. The map holds at most 26 keys for lowercas
 - [ ] I can design a canonical key so equivalent items collide (sorted string, count signature).
 - [ ] I avoid using arrays/objects as `Map` keys directly.
 - [ ] I can get the top k items from a count map, and I know the bucket-sort trick for `O(n)`.
+- [ ] I can count slices with a given sum using a running total and a map, and explain why the map starts with `0 → 1`.

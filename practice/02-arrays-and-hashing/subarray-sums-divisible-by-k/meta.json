@@ -1,0 +1,7 @@
+{
+  "title": "Subarray Sums Divisible by K",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/subarray-sums-divisible-by-k/",
+  "tags": ["hash map", "prefix sum", "math"],
+  "order": 15
+}

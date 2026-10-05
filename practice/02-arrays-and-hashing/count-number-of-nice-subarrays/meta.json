@@ -1,0 +1,7 @@
+{
+  "title": "Count Number of Nice Subarrays",
+  "difficulty": "Medium",
+  "leetcode": "https://leetcode.com/problems/count-number-of-nice-subarrays/",
+  "tags": ["hash map", "prefix sum"],
+  "order": 13
+}
