@@ -45,6 +45,7 @@ cheatsheets/                     quick-syntax notes shown in the 📝 drawer
 practice/<topic>/<problem>/
   README.md                      statement + hints
   solution.js                    ✏️ your code
+  starter.js                     the blank starting code (↺ Reset goes back to this)
   tests.js                       test cases
   reference.js                   model solution (try first!)
   meta.json                      title, difficulty, LeetCode link

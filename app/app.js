@@ -530,6 +530,7 @@ async function viewProblem(id) {
         <div class="editor-bar">
           <button class="btn primary small" id="run">▶ Run tests</button>
           <button class="btn small" id="save">💾 Save <span class="dirty-dot"></span></button>
+          <button class="btn ghost small" id="reset" title="Start over from the starter code">↺ Reset</button>
           ${STATIC ? '' : `<button class="btn small" id="open" title="Open solution.js in your editor">✏️ Open in editor</button>
           <button class="btn ghost small" id="reload" title="Reload from disk">↻</button>`}
           <span class="path" title="${esc(p.file)}">${esc(p.slug)}/solution.js</span>
@@ -629,6 +630,16 @@ function wireProblem(p) {
 
   document.getElementById('run').addEventListener('click', run);
   document.getElementById('save').addEventListener('click', async () => { await save(); toast('Saved 💾'); });
+  document.getElementById('reset').addEventListener('click', async () => {
+    if (!confirm('Start this problem over? Your code will be replaced with the starter code. Notes and progress stay.')) return;
+    const { code: starter } = await api(`problems/${id}/starter`);
+    if (starter == null) return toast('No starter code for this problem');
+    code.value = starter;
+    updateGutter();
+    await save();
+    document.getElementById('results').innerHTML = '';
+    toast('Fresh start 🌱');
+  });
   if (!STATIC) {
     document.getElementById('reload').addEventListener('click', () => reload(false));
     document.getElementById('open').addEventListener('click', async () => {

@@ -152,7 +152,7 @@ function notFound(what) {
   return err;
 }
 
-const problemMeta = ({ readme, code, tests, reference, ...meta }) => meta;
+const problemMeta = ({ readme, code, tests, reference, starter, ...meta }) => meta;
 
 export async function handle(path, { method = 'GET', body } = {}) {
   await init();
@@ -190,6 +190,7 @@ export async function handle(path, { method = 'GET', body } = {}) {
       return { ...result, ...recordRun(id, !!result.ok) };
     }
     if (action === 'reference') return { code: p.reference };
+    if (action === 'starter') return { code: p.starter };
     if (action === 'open') throw new Error('Opening an editor only works when running the app locally or in Codespaces.');
   }
 

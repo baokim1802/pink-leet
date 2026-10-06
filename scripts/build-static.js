@@ -46,6 +46,7 @@ const problems = catalog.listProblems().map((p) => {
     code: readIf(dir, 'solution.js') || '',
     tests: read(dir, 'tests.js'),
     reference: readIf(dir, 'reference.js'),
+    starter: readIf(dir, 'starter.js'),
   };
 });
 

@@ -23,6 +23,8 @@ fs.writeFileSync(path.join(dir, 'meta.json'), JSON.stringify({
   title, difficulty, leetcode: `https://leetcode.com/problems/${slug}/`, tags: [],
 }, null, 2) + '\n');
 fs.writeFileSync(path.join(dir, 'README.md'), `# ${title}\n\n> Paste the problem statement here.\n\n## Examples\n\n\`\`\`\nInput:\nOutput:\n\`\`\`\n`);
-fs.writeFileSync(path.join(dir, 'solution.js'), `/**\n * ${title}\n */\nfunction ${fnName}(input) {\n  // your code here 🎀\n}\n\nmodule.exports = ${fnName};\n`);
+const starter = `/**\n * ${title}\n */\nfunction ${fnName}(input) {\n  // your code here 🎀\n}\n\nmodule.exports = ${fnName};\n`;
+fs.writeFileSync(path.join(dir, 'solution.js'), starter);
+fs.writeFileSync(path.join(dir, 'starter.js'), starter); // what ↺ Reset goes back to
 fs.writeFileSync(path.join(dir, 'tests.js'), `module.exports = {\n  fn: '${fnName}',\n  cases: [\n    { args: [/* inputs */], expected: null },\n  ],\n};\n`);
 console.log(`🌸 Created ${path.relative(process.cwd(), dir)}\n   Fill in README.md + tests.js, then write solution.js and run: npm test ${slug}`);

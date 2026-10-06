@@ -118,6 +118,9 @@ async function api(req, res, url) {
     if (action === 'reference' && req.method === 'GET') {
       return send(res, 200, { code: read('reference.js') });
     }
+    if (action === 'starter' && req.method === 'GET') {
+      return send(res, 200, { code: read('starter.js') });
+    }
     if (action === 'open' && req.method === 'POST') {
       const child = spawn(EDITOR, [path.join(dir, 'solution.js')], { detached: true, stdio: 'ignore' });
       child.on('error', () => {});
