@@ -1,6 +1,6 @@
 import { renderMarkdown, highlightJs } from './md.js';
 import { initCheatsheet, toggleCheatsheet } from './cheatsheet.js';
-import { api, STATIC, staticBackend } from './api.js';
+import { api, STATIC, CLOUD, staticBackend } from './api.js';
 
 // ---------- state & helpers ----------
 const state = { lessons: [], problems: [], progress: null };
@@ -166,7 +166,8 @@ function renderSidebar() {
           <button class="btn small" id="backup" title="Download your code, notes and progress as a file">⬇️<span class="label"> Backup</span></button>
           <button class="btn small" id="restore" title="Load a backup file (or data/progress.json from the repo)">⬆️<span class="label"> Restore</span></button>
           <input type="file" id="restore-file" accept=".json,application/json" hidden>
-        </div>`
+        </div>
+        ${CLOUD ? `<div class="account" title="Your work is saved to your account">☁️ ${esc(signedIn?.email)} · <button id="signout">Sign out</button></div>` : ''}`
       : '<button class="btn sync-btn" id="sync" title="Commit & push your solutions, notes and progress">☁️<span class="label"> Save to GitHub</span></button>'}
 `;
   // keep the roadmap where it was, but make sure the current lesson is visible
@@ -180,6 +181,7 @@ function renderSidebar() {
   }
   if (STATIC) wireBackup();
   else document.getElementById('sync').addEventListener('click', syncToGitHub);
+  document.getElementById('signout')?.addEventListener('click', signOut);
   document.getElementById('theme').addEventListener('click', toggleTheme);
   document.getElementById('nav-cs').addEventListener('click', (e) => { e.preventDefault(); toggleCheatsheet(); });
 }
@@ -195,7 +197,8 @@ function wireBackup() {
   file.addEventListener('change', async () => {
     const f = file.files[0];
     if (!f) return;
-    if (!confirm(`Replace the work saved in this browser with "${f.name}"?`)) { file.value = ''; return; }
+    const where = CLOUD ? 'your account' : 'this browser';
+    if (!confirm(`Load "${f.name}" into ${where}? What's in the file replaces what's saved now.`)) { file.value = ''; return; }
     try {
       await (await staticBackend()).importBackup(await f.text());
       current = null; // don't let the unsaved-code guard block the reload
@@ -206,6 +209,16 @@ function wireBackup() {
     }
     file.value = '';
   });
+}
+
+// Website + Supabase only: who is signed in (set once at startup).
+let signedIn = null;
+
+async function signOut() {
+  if (current?.dirty && current.save) await current.save();
+  await (await staticBackend()).cloudClient().signOut();
+  current = null; // don't let the unsaved-code guard block the reload
+  location.reload();
 }
 
 async function syncToGitHub(e) {
@@ -539,7 +552,7 @@ async function viewProblem(id) {
           <pre class="gutter" id="gutter">1</pre>
           <textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
         </div>
-        <div class="kbd-hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> run · <kbd>Ctrl</kbd>+<kbd>S</kbd> save · ${STATIC ? 'your code is saved in this browser (use ⬇️ Backup to keep a copy)' : 'edits here and in your editor both work (it reloads when you come back)'}</div>
+        <div class="kbd-hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> run · <kbd>Ctrl</kbd>+<kbd>S</kbd> save · ${CLOUD ? 'your code is saved to your account' : STATIC ? 'your code is saved in this browser (use ⬇️ Backup to keep a copy)' : 'edits here and in your editor both work (it reloads when you come back)'}</div>
         <div id="results"></div>
       </div>
     </div>`;
@@ -844,8 +857,10 @@ async function route() {
   }
 }
 
+const ready = () => !CLOUD || signedIn; // nothing to show before sign-in on the website
 let lastHash = location.hash;
 window.addEventListener('hashchange', () => {
+  if (!ready()) return;
   if (current?.dirty && !confirm('You have unsaved code. Leave anyway?')) {
     history.replaceState(null, '', lastHash);
     return;
@@ -857,13 +872,27 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('beforeunload', (e) => { if (current?.dirty) e.preventDefault(); });
 window.addEventListener('focus', async () => {
   // pick up changes made in your editor / terminal (npm test) while you were away
+  if (!ready()) return;
   await refresh();
   renderSidebar();
   if (current && !current.dirty) current.reload?.(true);
 });
 
-initCheatsheet();
-refresh().then(route).catch((err) => {
+async function start() {
+  if (CLOUD) {
+    // the website saves to Supabase: sign in before loading anything
+    const { ensureSignedIn } = await import('./login.js');
+    const csTab = document.getElementById('cs-tab');
+    csTab.style.display = 'none';
+    signedIn = await ensureSignedIn($main);
+    csTab.style.display = '';
+    $main.innerHTML = '<div class="loading">Loading your study space… 🌸</div>';
+  }
+  initCheatsheet();
+  await refresh();
+}
+
+start().then(route).catch((err) => {
   $main.innerHTML = STATIC
     ? `<div class="empty"><div class="big">🥺</div>Couldn't load the study content.<br><small>${esc(err.message)}</small></div>`
     : `<div class="empty"><div class="big">🥺</div>Couldn't reach the study server.<br>Is <code>npm start</code> running?<br><small>${esc(err.message)}</small></div>`;

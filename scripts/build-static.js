@@ -4,6 +4,8 @@
 //
 // dist/ = the app/ files + data.json (every lesson, problem, cheat sheet and the test runner),
 // with window.LEET_STATIC set so the app runs without the Node server.
+// If supabase.config.json has a url and anonKey, the site saves to Supabase behind a sign-in
+// (window.LEET_SUPABASE); otherwise it saves in each visitor's browser.
 const fs = require('fs');
 const path = require('path');
 const catalog = require('../lib/catalog');
@@ -29,9 +31,11 @@ for (const f of appFiles) {
   if (f.endsWith('.js')) fs.writeFileSync(path.join(OUT, f), bust(read(ROOT, 'app', f)));
   else fs.copyFileSync(path.join(ROOT, 'app', f), path.join(OUT, f));
 }
+const supabase = readSupabaseConfig();
+const flags = `window.LEET_STATIC = true;${supabase ? ` window.LEET_SUPABASE = ${JSON.stringify(supabase)};` : ''}`;
 const html = bust(read(OUT, 'index.html')).replace(
   `<script type="module" src="app.js?v=${version}"></script>`,
-  `<script>window.LEET_STATIC = true;</script>\n  <script type="module" src="app.js?v=${version}"></script>`,
+  `<script>${flags}</script>\n  <script type="module" src="app.js?v=${version}"></script>`,
 );
 if (!html.includes('LEET_STATIC')) throw new Error('Could not mark index.html as static');
 if (!html.includes(`style.css?v=${version}`)) throw new Error('Could not version style.css in index.html');
@@ -50,8 +54,10 @@ const problems = catalog.listProblems().map((p) => {
   };
 });
 
+// Browser-only mode starts a first visit from the progress in the repo. With Supabase,
+// progress lives in each person's account instead.
 let seedProgress = null;
-try { seedProgress = JSON.parse(read(ROOT, 'data', 'progress.json')); } catch {}
+if (!supabase) try { seedProgress = JSON.parse(read(ROOT, 'data', 'progress.json')); } catch {}
 
 const bundle = {
   builtAt: new Date().toISOString(),
@@ -64,6 +70,15 @@ const bundle = {
 fs.writeFileSync(path.join(OUT, 'data.json'), JSON.stringify(bundle));
 const kb = Math.round(fs.statSync(path.join(OUT, 'data.json')).size / 1024);
 console.log(`🎀 Built dist/ — ${bundle.lessons.length} lessons, ${problems.length} problems, ${bundle.cheatsheets.length} cheat sheets (data.json ${kb} KB)`);
+console.log(supabase ? `   Saves to Supabase (${supabase.url}), sign-in required` : '   Saves in the browser (supabase.config.json is empty)');
+
+function readSupabaseConfig() {
+  let cfg = {};
+  try { cfg = JSON.parse(read(ROOT, 'supabase.config.json')); } catch {}
+  const url = process.env.SUPABASE_URL || cfg.url;
+  const anonKey = process.env.SUPABASE_ANON_KEY || cfg.anonKey;
+  return url && anonKey ? { url, anonKey } : null;
+}
 
 if (process.argv.includes('--serve')) {
   const http = require('http');

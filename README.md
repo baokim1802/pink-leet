@@ -16,6 +16,25 @@ The site at **https://baokim1802.github.io/pink-leet/** is always on, with nothi
 
 Try the website build locally: `npm run build -- --serve` → http://localhost:4322
 
+### Save to your account with Supabase
+
+With `supabase.config.json` filled in, the website saves your code, notes and progress to a free
+[Supabase](https://supabase.com) Postgres database instead of the browser. You sign in on any device, and only people
+you invite can have an account. Each person sees only their own work (Row Level Security).
+
+It shares the Supabase project with [Systems Study](../systems): the tables here all start with `leet_`,
+and one sign-in works for both sites. To set it up:
+
+1. In the Supabase project, open **SQL Editor → New query**, paste all of [`supabase/schema.sql`](supabase/schema.sql), and **Run**.
+2. **Authentication → URL Configuration → Redirect URLs**: add `https://baokim1802.github.io/pink-leet/` and `http://localhost:4322/`.
+3. `supabase.config.json` holds the project URL and the **anon** key (safe to commit; never the `service_role` key).
+
+Your first sign-in offers to copy up the work already saved in that browser. Sign-ups are off in Supabase, so
+new people need an invite (**Authentication → Users → Add user → Send invitation**).
+
+`npm run pull` copies your account's code into `practice/*/solution.js` and your progress into
+`data/progress.json` (then **☁️ Save to GitHub** commits them as usual). `npm run push` copies them back up.
+
 ## Run it in Codespaces
 
 1. On the repo page, click **Code → Codespaces → Create codespace on main**.
@@ -50,6 +69,7 @@ practice/<topic>/<problem>/
   reference.js                   model solution (try first!)
   meta.json                      title, difficulty, LeetCode link
 data/progress.json               your tracker: statuses, notes, goals, activity
+supabase/schema.sql              the database tables, if the website saves to Supabase
 app/  lib/  scripts/  server.js  the app itself
 ```
 

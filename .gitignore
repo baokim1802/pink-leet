@@ -3,3 +3,6 @@ dist/
 
 # personal notes, kept on this computer only
 cheatsheets/my-weak-spots.md
+
+# Supabase sign-in for npm run pull / push
+.supabase-session.json
