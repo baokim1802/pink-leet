@@ -9,10 +9,9 @@
 
 -- ---------- tables ----------
 
--- One row per person: name and goals.
+-- One row per person: goals. (First and last name are on the account, in auth.users, shared by both apps.)
 create table if not exists public.leet_profiles (
   user_id         uuid primary key default auth.uid() references auth.users on delete cascade,
-  name            text not null default '',
   daily_problems  smallint not null default 2 check (daily_problems between 0 and 50),
   weekly_problems smallint not null default 10 check (weekly_problems between 0 and 300),
   target_date     date,
@@ -72,6 +71,9 @@ create table if not exists public.leet_cheatsheets (
   updated_at timestamptz not null default now(),
   primary key (user_id, sheet_id)
 );
+
+-- Older databases had a name column here; the name moved to the account.
+alter table public.leet_profiles drop column if exists name;
 
 -- ---------- security: everyone sees only their own rows ----------
 

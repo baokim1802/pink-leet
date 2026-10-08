@@ -67,6 +67,7 @@ const readIf = (file) => (fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : 
 
 async function pull(db, cloud) {
   const { store } = await cloud.loadStore(db);
+  store.progress.name ||= progress.load().name; // the account has no first name yet: keep the local one
   progress.save(store.progress);
   let n = 0;
   for (const [id, code] of Object.entries(store.code)) {

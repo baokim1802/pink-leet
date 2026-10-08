@@ -167,7 +167,7 @@ function renderSidebar() {
           <button class="btn small" id="restore" title="Load a backup file (or data/progress.json from the repo)">⬆️<span class="label"> Restore</span></button>
           <input type="file" id="restore-file" accept=".json,application/json" hidden>
         </div>
-        ${CLOUD ? `<div class="account" title="Your work is saved to your account">☁️ ${esc(signedIn?.email)} · <button id="signout">Sign out</button></div>` : ''}`
+        ${CLOUD ? `<div class="account" title="Saved to your account: ${esc(signedIn?.email)}">☁️ ${esc([signedIn?.firstName, signedIn?.lastName].filter(Boolean).join(' ') || signedIn?.email)} · <button id="signout">Sign out</button></div>` : ''}`
       : '<button class="btn sync-btn" id="sync" title="Commit & push your solutions, notes and progress">☁️<span class="label"> Save to GitHub</span></button>'}
 `;
   // keep the roadmap where it was, but make sure the current lesson is visible
@@ -211,7 +211,7 @@ function wireBackup() {
   });
 }
 
-// Website + Supabase only: who is signed in (set once at startup).
+// Website + Supabase only: who is signed in ({ id, email, firstName, lastName }).
 let signedIn = null;
 
 async function signOut() {
@@ -767,10 +767,24 @@ function viewGoals() {
     bind('g-weekly', 'weeklyProblems', Number);
     bind('g-date', 'targetDate');
     bind('g-label', 'targetLabel');
-    document.getElementById('g-name').addEventListener('change', async (e) => {
-      await saveProgress('profile', null, { name: e.target.value.trim() });
-      toast(`Hi ${e.target.value.trim() || 'there'}! 🌸`);
-    });
+    if (CLOUD) {
+      // saved on your account, so both study sites greet you the same way
+      const saveName = async () => {
+        const firstName = document.getElementById('g-first').value.trim();
+        if (!firstName) return toast('Your first name is needed for the greeting 🌸');
+        await saveProgress('profile', null, { firstName, lastName: document.getElementById('g-last').value.trim() });
+        signedIn = (await staticBackend()).cloudClient().user;
+        renderSidebar();
+        toast(`Hi ${firstName}! 🌸`);
+      };
+      document.getElementById('g-first').addEventListener('change', saveName);
+      document.getElementById('g-last').addEventListener('change', saveName);
+    } else {
+      document.getElementById('g-name').addEventListener('change', async (e) => {
+        await saveProgress('profile', null, { name: e.target.value.trim() });
+        toast(`Hi ${e.target.value.trim() || 'there'}! 🌸`);
+      });
+    }
     const customs = () => state.progress.goals.custom || [];
     document.getElementById('goal-add').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -798,7 +812,12 @@ function viewGoals() {
     <div class="grid goals-grid">
       <div class="card">
         <h3>🌷 Your targets</h3>
-        <div class="field"><label>Your name (for the greeting)</label><input type="text" id="g-name" value="${esc(state.progress.name)}" placeholder="e.g. Kim"></div>
+        ${CLOUD
+          ? `<div class="row" style="gap:14px;align-items:flex-start">
+              <div class="field" style="flex:1"><label>First name (for the greeting)</label><input type="text" id="g-first" maxlength="40" value="${esc(signedIn?.firstName)}" placeholder="e.g. Kim"></div>
+              <div class="field" style="flex:1"><label>Last name</label><input type="text" id="g-last" maxlength="40" value="${esc(signedIn?.lastName)}"></div>
+            </div>`
+          : `<div class="field"><label>Your name (for the greeting)</label><input type="text" id="g-name" value="${esc(state.progress.name)}" placeholder="e.g. Kim"></div>`}
         <div class="row" style="gap:14px;align-items:flex-start">
           <div class="field" style="flex:1"><label>Problems per day</label><input type="number" min="0" max="50" id="g-daily" value="${esc(g.dailyProblems)}"></div>
           <div class="field" style="flex:1"><label>Problems per week</label><input type="number" min="0" max="200" id="g-weekly" value="${esc(g.weeklyProblems)}"></div>

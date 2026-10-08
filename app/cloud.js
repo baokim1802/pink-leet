@@ -39,12 +39,12 @@ export async function loadStore(db) {
 
   const p = profiles[0];
   const progress = normalizeProgress(p ? {
-    name: p.name,
     goals: {
       dailyProblems: p.daily_problems, weeklyProblems: p.weekly_problems,
       targetDate: p.target_date || '', targetLabel: p.target_label, custom: p.custom_goals || [],
     },
   } : {});
+  progress.name = db.user?.firstName || ''; // the greeting's name lives on the account, shared with Systems Study
   for (const r of problems) {
     progress.problems[r.problem_id] = dropNulls({
       status: r.status, attempts: r.attempts, notes: r.notes, starred: r.starred || null, solvedAt: r.solved_at, lastRunAt: r.last_run_at,
@@ -69,7 +69,6 @@ export function profileRows(uid, prog) {
   const g = prog.goals || {};
   return ['leet_profiles', [{
     user_id: uid,
-    name: prog.name || '',
     daily_problems: clamp(g.dailyProblems, 50),
     weekly_problems: clamp(g.weeklyProblems, 300),
     target_date: nullIfEmpty(g.targetDate),

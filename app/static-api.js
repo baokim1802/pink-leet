@@ -252,6 +252,13 @@ export async function handle(path, { method = 'GET', body } = {}) {
     if (action === 'open') throw new Error('Opening an editor only works when running the app locally or in Codespaces.');
   }
 
+  if (resource === 'progress' && method === 'POST' && body.type === 'profile' && db) {
+    // first and last name are saved on the account, so Systems Study greets you the same way
+    const user = await db.setName(body.patch?.firstName ?? db.user.firstName, body.patch?.lastName ?? db.user.lastName);
+    store.progress.name = user.firstName;
+    return store.progress;
+  }
+
   if (resource === 'progress' && method === 'POST') {
     return commit(
       () => applyProgress(body),
