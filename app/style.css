@@ -374,6 +374,8 @@ select { cursor: pointer; }
 /* ---------- problem page ---------- */
 .problem-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
 .problem-head h1 { margin: 0; font-size: 26px; }
+.problem-head .tags { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.problem-head .tags[hidden] { display: none; }
 .star { background: none; border: none; font-size: 22px; cursor: pointer; filter: grayscale(1) opacity(.45); transition: transform .15s, filter .15s; padding: 0 4px; }
 .star.on { filter: none; }
 .star:hover { transform: scale(1.2); }

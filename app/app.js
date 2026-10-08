@@ -522,7 +522,8 @@ async function viewProblem(id) {
       <a class="btn ghost small" href="#/practice">←</a>
       <h1>${esc(p.title)}</h1>
       <span class="pill ${p.difficulty}">${p.difficulty}</span>
-      ${p.tags.map((t) => `<span class="pill tag">${esc(t)}</span>`).join('')}
+      ${p.tags.length ? `<button class="btn ghost small" id="show-tags" title="Topic tags can give away the approach">🏷️ Show tags</button>
+      <span class="tags" id="tags" hidden>${p.tags.map((t) => `<span class="pill tag">${esc(t)}</span>`).join('')}</span>` : ''}
       <button class="star ${pr.starred ? 'on' : ''}" id="star" title="Star this problem">⭐</button>
       <span class="spacer"></span>
       <select id="status" title="Status">${Object.entries(STATUS).map(([k, v]) => `<option value="${k}" ${k === st ? 'selected' : ''}>${v.icon} ${v.label}</option>`).join('')}</select>
@@ -668,6 +669,11 @@ function wireProblem(p) {
   document.getElementById('status').addEventListener('change', async (e) => {
     await saveProgress('problem', id, { status: e.target.value });
     if (e.target.value === 'solved') celebrate();
+  });
+  document.getElementById('show-tags')?.addEventListener('click', (e) => {
+    const tags = document.getElementById('tags');
+    tags.hidden = !tags.hidden;
+    e.currentTarget.textContent = tags.hidden ? '🏷️ Show tags' : '🏷️ Hide tags';
   });
   document.getElementById('star').addEventListener('click', async (e) => {
     const on = !probProgress(id).starred;
